@@ -1,0 +1,76 @@
+<ion-header #head>
+  <ion-navbar>
+    <!-- <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-buttons left>
+      <button ion-button (click)="SpeakAll()">
+        <ion-icon padding  icon-only clear name="volume-up" *ngIf="!isSpeaking"></ion-icon>
+         <ion-icon padding  icon-only clear name="volume-off" *ngIf="isSpeaking"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Quotes Of The Day</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content #content hide-header [header]="head">
+
+  <ion-card *ngFor="let quote of AllQuotesOfTheDay" [id]="quote.ID">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="quote.Avatar">
+      </ion-avatar>
+      <h2  (click)="showQuotesByAuthor(quote.AU)">{{quote.AU}}</h2>
+
+      <button color="button" class="disable-ripple" padding-right item-right ion-button icon-only clear (click)="readTheQuote(quote)">
+        <ion-icon class="icon" name="volume-up"></ion-icon>
+      </button>
+      <button color="button" class="disable-ripple" item-right ion-button icon-only clear (click)="removeFromQOTD(quote)">
+        <ion-icon class="icon" name="trash"></ion-icon>
+      </button>
+    </ion-item>
+    <figure #QuoteCard class="snip1574" (swipe)="swiped(quote)" (tap)="doubleTap(quote)">
+      <!-- <img [src]="quote.BG"> -->
+      <div class="bg-img" [ngStyle]="{ background: 'url(' + quote.BG + ')' }"></div>
+
+      <figcaption>
+        <blockquote>
+          <p (click)="showQuotesByAuthor(quote.AU)">{{quote.QT}}</p>
+        </blockquote>
+
+      </figcaption>
+    </figure>
+    <ion-row>
+      <ion-col text-left col-6>
+
+        <button color="button" class="disable-ripple" ion-button icon-only clear (click)="share(quote,QuoteCard)">
+          <ion-icon class="icon" name="share-alt"></ion-icon>
+        </button>
+        <button color="button" class="disable-ripple" ion-button icon-only clear (click)="calculateTime(quote)">
+          <ion-label>{{calculateTime(quote)}}</ion-label>
+        </button>
+
+      </ion-col>
+      <ion-col col-6 text-right> <button color="button" class="disable-ripple" item-right ion-button icon-only clear (click)="initSave(QuoteCard)">
+          <ion-icon class="icon" name="download"></ion-icon>
+        </button>
+        <button color="button" class="disable-ripple" ion-button icon-only clear (click)="copyToClipboard(quote)">
+          <ion-icon class="icon" name='copy'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-grid style="height: 100%" *ngIf="AllQuotesOfTheDay.length <= 0 || !AllQuotesOfTheDay">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      No items.
+    </ion-row>
+  </ion-grid>
+
+ 
+</ion-content>

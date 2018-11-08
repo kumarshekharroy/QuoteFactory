@@ -1,0 +1,51 @@
+page-search {
+    .snip1574 {
+        min-width: 150px;
+    }
+    .snip1574 * {
+        font-size: 12px;
+    }
+    .snip1574 figcaption {
+        padding: 35px 5% 15%
+    }
+    .snip1574 figcaption:before {
+        font-size: 75px;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+    .snip1574 blockquote ion-label {
+        font-style: italic;
+        color: #ffffff;
+    }
+    .bg-img {
+        width: 150px;
+        height: 150px;
+        background-position: 50% 50% !important;
+        background-size: cover !important;
+    }
+    .scroll-content {
+        padding: 0px !important;
+    }
+    ion-label {
+        font-size: 12px;
+    }
+    .scroll-zoom-wrapper {
+        white-space: nowrap;
+    }
+    ion-card {
+        width: 150px !important;
+        height: 150px !important;
+        display: inline-block;
+        transform: scale(1);
+    }
+    ion-scroll {
+        min-height: 175px;
+        height: auto;
+        .scroll-content {
+            padding: 0px !important;
+        }
+    }
+    ion-list-header {
+        margin: 0px !important;
+    }
+}

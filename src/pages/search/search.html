@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchKey" debounce="750" [showCancelButton]="shouldShowCancel" (ionInput)="searchItems()">
+    </ion-searchbar>
+  </ion-toolbar>
+  <!-- <ion-navbar>
+    <ion-searchbar (ionInput)="searchItems($event)"></ion-searchbar>
+  </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list-header [ngClass]="QuotesBasedOnQuote.length>0?'':'hide'">
+    Quotes matching '{{searchKey}}'
+  </ion-list-header>
+  <ion-scroll scrollX="true" direction="x" [ngClass]="QuotesBasedOnQuote.length>0?'':'hide'">
+
+    <ion-card class="inner" *ngFor="let quote of QuotesBasedOnQuote">
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="quote.Avatar">
+        </ion-avatar>
+        <ion-label>{{quote.AU}}</ion-label>
+      </ion-item>
+      <figure class="snip1574" (click)="showQuoteModel(quote)">
+        <!-- (tap)="showQuoteModel(quote)" -->
+        <div class="bg-img" [ngStyle]="{ background: 'url(' + quote.BG + ')' }"></div>
+        <!-- <img [src]=""> -->
+        <figcaption>
+          <blockquote>
+            <ion-label>{{quote.QT}}</ion-label>
+          </blockquote>
+        </figcaption>
+      </figure>
+    </ion-card>
+  </ion-scroll>
+
+
+  <ion-list-header [ngClass]="QuotesBasedOnAuthor.length>0?'':'hide'">
+    Quotes from Author name matching '{{searchKey}}'
+  </ion-list-header>
+
+  <ion-scroll scrollX="true" direction="x" [ngClass]="QuotesBasedOnAuthor.length>0?'':'hide'">
+
+    <ion-card class="inner" *ngFor="let quote of QuotesBasedOnAuthor">
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="quote.Avatar">
+        </ion-avatar>
+        <ion-label>{{quote.AU}}</ion-label>
+      </ion-item>
+      <figure class="snip1574" (click)="showQuoteModel(quote)">
+        <!-- (tap)="showQuoteModel(quote)" -->
+        <div class="bg-img" [ngStyle]="{ background: 'url(' + quote.BG + ')' }"></div>
+        <!-- <img [src]=""> -->
+        <figcaption>
+          <blockquote>
+            <ion-label>{{quote.QT}}</ion-label>
+          </blockquote>
+        </figcaption>
+      </figure>
+    </ion-card>
+  </ion-scroll>
+
+
+  <ion-list-header [ngClass]="QuotesBasedOnTag.length>0?'':'hide'">
+    Quotes from Catogary matching '{{searchKey}}'
+  </ion-list-header>
+  <ion-scroll scrollX="true" direction="x" [ngClass]="QuotesBasedOnTag.length>0?'':'hide'">
+    <ion-card class="inner" *ngFor="let quote of QuotesBasedOnTag">
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="quote.Avatar">
+        </ion-avatar>
+        <ion-label>{{quote.AU}}</ion-label>
+      </ion-item>
+      <figure class="snip1574" (click)="showQuoteModel(quote)">
+        <!-- (tap)="showQuoteModel(quote)" -->
+        <div class="bg-img" [ngStyle]="{ background: 'url(' + quote.BG + ')' }"></div>
+        <!-- <img [src]=""> -->
+        <figcaption>
+          <blockquote>
+            <ion-label>{{quote.QT}}</ion-label>
+          </blockquote>
+        </figcaption>
+      </figure>
+    </ion-card>
+  </ion-scroll>
+
+  <ion-grid style="height: 100%" *ngIf="
+  (QuotesBasedOnQuote.length <= 0 || !QuotesBasedOnQuote) && 
+  (QuotesBasedOnAuthor.length <= 0 || !QuotesBasedOnAuthor) && 
+  (QuotesBasedOnTag.length <= 0 || !QuotesBasedOnTag)">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      No items.
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

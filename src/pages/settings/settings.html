@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+     <ion-buttons left>
+      <button ion-button (click)="toggleProMode()">
+        
+      </button>
+    </ion-buttons>  
+  
+    <ion-title >Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Look and feel
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name="phone-portrait" item-start></ion-icon>
+      <ion-label>Fullscreen mode</ion-label>
+      <ion-toggle color="secondary" [checked]="settings.isFullScreen" (ionChange)="toggleFullScreen($event)"></ion-toggle>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-icon name="moon" item-start></ion-icon>
+      <ion-label>Night mode</ion-label>
+      <ion-toggle color="secondary" [checked]="settings.isDarkMode" (ionChange)="toggleNightMode($event)"></ion-toggle>
+    </ion-item> -->
+    <ion-item>
+      <ion-icon name="notifications" item-start></ion-icon>
+      <ion-label>Get updates</ion-label>
+      <ion-toggle color="secondary" [checked]="settings.isPushNotificationsEnabled" (ionChange)="togglePushNotificationsEnabled($event)"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="pulse" item-start></ion-icon>
+      <ion-label>Shake to suffle</ion-label>
+      <ion-toggle color="secondary" [checked]="settings.isShakeModeEnabled" (ionChange)="toggleisShakeMode($event)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf=settings.isShakeModeEnabled>
+    <ion-list-header style="margin-bottom:0px;">
+      Shake intensity
+    </ion-list-header>
+    <ion-item>
+      <ion-range min="40" max="120" debounce="1000" [(ngModel)]="settings.shakeIntensity" (ionChange)="onShakeIntensityChange()">
+        <ion-icon small range-left name="pulse"></ion-icon>
+        <ion-icon range-right name="pulse"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header style="margin-bottom:0px;">
+      Speech speed
+    </ion-list-header>
+    <ion-item>
+      <ion-range min="50" max="200" debounce="1000" [(ngModel)]="speechSpeed" (ionChange)="onSpeechSpeedChange()">
+        <ion-icon small range-left name="volume-up"></ion-icon>
+        <ion-icon range-right name="volume-up"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+  </ion-list>
+  <!-- <ion-list>
+    <ion-list-header>
+      Premium Service
+    </ion-list-header>
+    <ion-item *ngIf="!settings.isPro || RemainingDays<0" (tap)="toggleProMode()">
+      <ion-thumbnail item-left class="item-ribbon">
+        <span class="ribbon sale">
+          <span> Go Ad Free </span>
+        </span>
+        <img [src]="'assets/img/pro.png'">
+      </ion-thumbnail>
+      <div>
+        <p>Remove all ads for 1 month @ $1</p>
+      </div>
+    </ion-item>
+    <ion-item *ngIf="settings.isPro && RemainingDays>=0" (tap)="toggleProMode()">
+      <ion-thumbnail item-left class="item-ribbon">
+        <span class="ribbon sale">
+          <span> Premium </span>
+        </span>
+        <img [src]="'assets/img/pro.png'">
+      </ion-thumbnail>
+      <div>
+        <p>Enjoy Ad free experience till next {{RemainingDays}} days.</p>
+      </div>
+    </ion-item>
+
+  </ion-list> -->
+</ion-content>

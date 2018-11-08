@@ -1,0 +1,68 @@
+<ion-header #head>
+  <ion-navbar>
+     <ion-buttons left>
+      <button ion-button (click)="SpeakAll()">
+        <ion-icon padding  icon-only clear name="volume-up" *ngIf="!isSpeaking"></ion-icon>
+         <ion-icon padding  icon-only clear name="volume-off" *ngIf="isSpeaking"></ion-icon>
+      </button>
+    </ion-buttons>  
+    <ion-title>Quote Factory</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button> </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content #content hide-header [header]="head">
+
+  <ion-card *ngFor="let quote of AllQuotes" [id]="quote.ID">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="quote.Avatar">
+      </ion-avatar>
+      <h2 (click)="showQuotesByAuthor(quote.AU)">{{quote.AU}}</h2>
+
+      <button color="button" class="disable-ripple" item-right ion-button icon-only clear (click)="readTheQuote(quote)">
+        <ion-icon class="icon" name="volume-up"></ion-icon>
+      </button>
+    </ion-item>
+    <figure #QuoteCard class="snip1574" (swipe)="swiped(quote)" (tap)="doubleTap(quote)"> 
+      <div class="bg-img" [ngStyle]="{ background: 'url(' + quote.BG + ')' }"></div>
+
+      <figcaption>
+        <blockquote>
+          <p>{{quote.QT}}</p>
+        </blockquote>
+
+      </figcaption>
+    </figure>
+    <ion-row (onCreate)="isLikedOrFav(quote)">
+      <ion-col text-left col-6>
+        <button color="button" class="disable-ripple" ion-button icon-only clear *ngIf="quote.isLiked" (click)="removeFromLiked(quote)">
+          <ion-icon name="heart" color="danger"></ion-icon>
+        </button>
+        <button color="button" class="disable-ripple" ion-button icon-only clear *ngIf="!quote.isLiked" (click)="addToLiked(quote)">
+          <ion-icon name="heart-outline"></ion-icon>
+        </button>
+        <button color="button" class="disable-ripple" ion-button icon-only clear (click)="share(quote,QuoteCard)">
+          <ion-icon class="icon" name="share-alt"></ion-icon>
+        </button>
+
+      </ion-col>
+      <ion-col col-6 text-right> <button color="button" class="disable-ripple" item-right ion-button icon-only clear (click)="initSave(QuoteCard)">
+          <ion-icon class="icon" name="download"></ion-icon>
+        </button>
+        <button color="button" class="disable-ripple" ion-button icon-only clear (click)="copyToClipboard(quote)">
+          <ion-icon class="icon" name='copy'></ion-icon>
+        </button> 
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="1000px">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more Quotes..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,214 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// .modal-wrapper{
+//     position: absolute;
+//     overflow: hidden;
+//     border-radius:10px;
+//     width: 90%;
+//     height: 40vh;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+//     border: 0;
+//     box-shadow: 0 16px 20px rgba(0,0,0,.5);
+//     background-color: #fafafa;
+// }
+// ion-modal ion-backdrop {
+//     visibility: visible!important;
+// }
+// .fixed-content{
+//     background-color: #f7f7f7;
+// }
+
+
+.popover-class .popover-content {
+    width: 200px;
+    padding-bottom: 0px;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+ion-avatar {
+    margin: 8px 8px 8px 0 !important;
+}
+
+.bg-img {
+    width: 100% !important;
+    height: 250px !important;
+    background-position: 50% 50% !important;
+    background-size: cover !important;
+}
+
+.quote-modal {
+    .modal-wrapper {
+        position: absolute;
+        overflow: hidden;  
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width: 100%;
+        height: 70vh; 
+        min-height: 50vh;
+        
+     max-height: 70vh;
+   // height: auto;
+         //top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 0;
+        box-shadow: 0 16px 20px rgba(0, 0, 0, .5);
+        background-color: #fafafa;
+    }
+}
+
+ion-modal ion-backdrop {
+    visibility: visible !important;
+}
+ 
+.card {
+    border-radius: 8px; //margin: 12px 5px;
+}
+
+.disable-ripple ion-button-effect {
+    display: none;
+}
+
+.title.title-md {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 70%;
+    text-align: center;
+}
+ 
+    /* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url('assets/font/S6uyw4BMUTPHjxAwXjeu.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url('assets/font/S6uyw4BMUTPHjx4wXg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url('assets/font/TK3iWkUHHAIjg752HT8Ghe4.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url('assets/font/TK3iWkUHHAIjg752Fj8Ghe4.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url('assets/font/TK3iWkUHHAIjg752Fz8Ghe4.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url('assets/font/TK3iWkUHHAIjg752GT8G.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+//  @import url('../assets/font/font-awesome.min.css');
+
+.snip1574 {
+  font-family: 'Lato', Arial, sans-serif;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  min-width: 250px; //max-width: 310px;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.snip1574 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.snip1574 img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.7;
+}
+.snip1574 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 80px 10% 15%;
+}
+.snip1574 figcaption:before {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 170px;
+  opacity: 0.35;
+  font-style: normal;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 0px;
+  left: 50%;
+}
+.snip1574 blockquote {
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2em;
+}
+.snip1574 blockquote p {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+ion-card { 
+  transform: scale(1);
+}

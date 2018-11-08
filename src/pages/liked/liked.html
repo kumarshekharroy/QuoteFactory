@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <!-- <ion-buttons left>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    <ion-buttons left>
+      <button ion-button (click)="SpeakAll()">
+        <ion-icon padding  icon-only clear name="volume-up" *ngIf="!isSpeaking"></ion-icon>
+         <ion-icon padding  icon-only clear name="volume-off" *ngIf="isSpeaking"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Liked Quotes</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button> </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding  justify-content-center align-items-center>
+  <ion-card class="inner" *ngFor="let quote of LikedQuotes" [id]="quote.ID"> 
+    <!-- [ngClass]="quote.isLiked?'':'hide'"  -->
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="quote.Avatar">
+      </ion-avatar>
+      <ion-label>{{quote.AU}}</ion-label>
+    </ion-item>
+    <figure class="snip1574" (click)="showQuoteModel(quote)">
+      <!-- (tap)="showQuoteModel(quote)" -->
+      <div class="bg-img" [ngStyle]="{ background: 'url(' + quote.BG + ')' }"></div>
+      <!-- <img [src]=""> -->
+      <figcaption>
+        <blockquote>
+          <ion-label>{{quote.QT}}</ion-label>
+        </blockquote>
+      </figcaption>
+    </figure>
+  </ion-card>
+  <ion-grid style="height: 100%" *ngIf="LikedQuotes.length <= 0 || !LikedQuotes">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      No items.
+    </ion-row>
+  </ion-grid>
+</ion-content>

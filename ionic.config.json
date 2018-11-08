@@ -1,0 +1,7 @@
+{
+  "name": "QuoteFactory",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
